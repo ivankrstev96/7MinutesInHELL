@@ -1,0 +1,12 @@
+c:\users\user\documents\visual studio 2017\Projects\7MinutesInHELL\7MinutesInHELL\bin\Debug\7MinutesInHELL.exe.config
+c:\users\user\documents\visual studio 2017\Projects\7MinutesInHELL\7MinutesInHELL\bin\Debug\7MinutesInHELL.exe
+c:\users\user\documents\visual studio 2017\Projects\7MinutesInHELL\7MinutesInHELL\bin\Debug\7MinutesInHELL.pdb
+c:\users\user\documents\visual studio 2017\Projects\7MinutesInHELL\7MinutesInHELL\obj\Debug\7MinutesInHELL.csprojResolveAssemblyReference.cache
+c:\users\user\documents\visual studio 2017\Projects\7MinutesInHELL\7MinutesInHELL\obj\Debug\_7MinutesInHELL.Form1.resources
+c:\users\user\documents\visual studio 2017\Projects\7MinutesInHELL\7MinutesInHELL\obj\Debug\_7MinutesInHELL.Properties.Resources.resources
+c:\users\user\documents\visual studio 2017\Projects\7MinutesInHELL\7MinutesInHELL\obj\Debug\7MinutesInHELL.csproj.GenerateResource.Cache
+c:\users\user\documents\visual studio 2017\Projects\7MinutesInHELL\7MinutesInHELL\obj\Debug\7MinutesInHELL.exe
+c:\users\user\documents\visual studio 2017\Projects\7MinutesInHELL\7MinutesInHELL\obj\Debug\7MinutesInHELL.pdb
+c:\users\user\documents\visual studio 2017\Projects\7MinutesInHELL\7MinutesInHELL\obj\Debug\_7MinutesInHELL.ChooseName.resources
+c:\users\user\documents\visual studio 2017\Projects\7MinutesInHELL\7MinutesInHELL\obj\Debug\_7MinutesInHELL.Game.resources
+C:\Users\user\documents\visual studio 2017\Projects\7MinutesInHELL\7MinutesInHELL\obj\Debug\_7MinutesInHELL.Instructions.resources
