@@ -42,6 +42,7 @@
             this.lblPoints = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
             this.pbReload = new System.Windows.Forms.ProgressBar();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlStatus.SuspendLayout();
@@ -171,14 +172,14 @@
             // lblPoints
             // 
             this.lblPoints.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblPoints.AutoSize = true;
             this.lblPoints.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPoints.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblPoints.Location = new System.Drawing.Point(823, 6);
+            this.lblPoints.Location = new System.Drawing.Point(621, 6);
             this.lblPoints.Name = "lblPoints";
-            this.lblPoints.Size = new System.Drawing.Size(24, 25);
+            this.lblPoints.Size = new System.Drawing.Size(226, 25);
             this.lblPoints.TabIndex = 10;
             this.lblPoints.Text = "0";
+            this.lblPoints.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblTime
             // 
@@ -205,6 +206,12 @@
             this.pbReload.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.pbReload.TabIndex = 0;
             this.pbReload.Value = 100;
+            // 
+            // timer2
+            // 
+            this.timer2.Enabled = true;
+            this.timer2.Interval = 1000;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // Game
             // 
@@ -243,5 +250,6 @@
         private System.Windows.Forms.ProgressBar pbReload;
         private System.Windows.Forms.Label lblPoints;
         private System.Windows.Forms.Label lblTime;
+        private System.Windows.Forms.Timer timer2;
     }
 }

@@ -25,6 +25,7 @@ namespace _7MinutesInHELL
         public bool flagRight;
         public string FileName;
         public bool flagPaused;
+        Random r;
         public Game(String name, int width, int height, Point location)
         {
             InitializeComponent();
@@ -36,11 +37,14 @@ namespace _7MinutesInHELL
             flagPaused = false;
             gd = new GameDoc(name, width, height, pnlStatus.Height);
             timer1.Start();
+            timer2.Start();
             FileName = null;
             flagUp = false;
             flagDown = false;
             flagLeft = false;
             flagRight = false;
+            r = new Random();
+            gd.addDemon(this.Width, this.Height, r);
             Invalidate(true);
         }
         public Game(int width, int height, Point location, GameDoc gd)
@@ -54,21 +58,23 @@ namespace _7MinutesInHELL
             flagPaused = false;
             this.gd = gd;
             timer1.Start();
+            timer2.Start();
             FileName = null;
             flagUp = false;
             flagDown = false;
             flagLeft = false;
             flagRight = false;
+            r = new Random();
             Invalidate(true);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if(flagMove == true)
+            if (flagMove == true)
             {
                 bool flag = true;
                 Point p;
-                if(gd.player.direction == Direction.Left)
+                if (gd.player.direction == Direction.Left)
                 {
                     p = new Point(gd.player.center.X - Player.velocity, gd.player.center.Y);
                 }
@@ -91,19 +97,22 @@ namespace _7MinutesInHELL
                         flag = false;
                         break;
                     }
-                        
+
                 }
                 if (flag)
                     gd.player.Move(this.Width, this.Height, pnlStatus.Height);
+                if (gd.portal.CollidesPlayer(gd.player)) gameWin();
             }
-            gd.moveProjectiles(this.Width, this.Height, pnlStatus.Height);
+            lblPoints.Text = (int.Parse(lblPoints.Text) + gd.moveDemons(this.Width, this.Height)).ToString();
+            lblPoints.Text = (int.Parse(lblPoints.Text) + gd.moveProjectiles(this.Width, this.Height, pnlStatus.Height)).ToString();
+            if (gd.player.alive == false) gameLose();
             Invalidate(true);
         }
 
         private void Game_KeyDown(object sender, KeyEventArgs e)
         {
-            
-            if(e.KeyCode == Keys.Up)
+
+            if (e.KeyCode == Keys.Up)
             {
                 flagMove = true;
                 flagUp = true;
@@ -127,30 +136,32 @@ namespace _7MinutesInHELL
                 flagRight = true;
                 gd.player.Turn(Direction.Right);
             }
-            
+
         }
 
         private void Game_Paint(object sender, PaintEventArgs e)
         {
-            gd.drawProjectiles(e.Graphics);
+            gd.drawPortal(e.Graphics);
             gd.drawRocks(e.Graphics);
             gd.player.Draw(e.Graphics);
+            gd.drawDemons(e.Graphics);
+            gd.drawProjectiles(e.Graphics);
         }
 
         private void Game_KeyUp(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Up || e.KeyCode == Keys.Down || e.KeyCode == Keys.Left || e.KeyCode == Keys.Right)
+            if (e.KeyCode == Keys.Up || e.KeyCode == Keys.Down || e.KeyCode == Keys.Left || e.KeyCode == Keys.Right)
             {
                 if (e.KeyCode == Keys.Up)
                 {
                     flagUp = false;
-                    if(gd.player.direction == Direction.Up)
+                    if (gd.player.direction == Direction.Up)
                     {
                         flagMove = false;
                         gd.player.flagMoving = false;
                     }
                 }
-                    
+
                 if (e.KeyCode == Keys.Down)
                 {
                     flagDown = false;
@@ -177,25 +188,26 @@ namespace _7MinutesInHELL
                         flagMove = false;
                         gd.player.flagMoving = false;
                     }
-                } 
+                }
                 if (!flagUp && !flagDown && !flagLeft && !flagLeft && !flagRight)
                 {
                     flagMove = false;
                     gd.player.flagMoving = false;
                 }
-                
+
             }
-            if(e.KeyCode == Keys.Escape)
+            if (e.KeyCode == Keys.Escape)
             {
-                
+
                 if (!flagPaused)
                 {
                     flagPaused = !flagPaused;
                     pnlMenu.Visible = true;
                     timer1.Stop();
+                    timer2.Stop();
                 }
             }
-            if(e.KeyCode == Keys.Space)
+            if (e.KeyCode == Keys.Space)
             {
                 if (gd.player.flagProjectile)
                 {
@@ -204,7 +216,7 @@ namespace _7MinutesInHELL
                     pbReload.Value = 0;
                 }
             }
-            
+
         }
 
         private void btnContinue_Click(object sender, EventArgs e)
@@ -212,6 +224,7 @@ namespace _7MinutesInHELL
             flagPaused = !flagPaused;
             pnlMenu.Visible = false;
             timer1.Start();
+            timer2.Start();
             this.Focus();
         }
 
@@ -254,12 +267,113 @@ namespace _7MinutesInHELL
             }
         }
 
+        public void gameLose()
+        {
+            timer1.Stop();
+            timer2.Stop();
+            GameLose gl = new GameLose(this.Width, this.Height, this.Location);
+            this.Hide();
+            gl.ShowDialog();
+            this.Close();
+        }
+
+        public void gameWin()
+        {
+            timer1.Stop();
+            timer2.Stop();
+            GameWin gl = new GameWin(this.Width, this.Height, this.Location);
+            this.Hide();
+            gl.ShowDialog();
+            this.Close();
+        }
+
         private void btnInstructions_Click(object sender, EventArgs e)
         {
             Instructions ins = new Instructions(this.Width, this.Height, this.Location);
             this.Hide();
             ins.ShowDialog();
             this.Show();
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            String[] ss = lblTime.Text.Split(':');
+            int mins = int.Parse(ss[0]);
+            int secs = int.Parse(ss[1]);
+            if (secs == 0)
+            {
+                if (mins > 0)
+                {
+                    mins--;
+                    secs = 59;
+                }
+            }
+            else
+            {
+                secs--;
+            }
+            lblTime.Text = mins.ToString("00") + ":" + secs.ToString("00");
+            if (mins == 6)
+            {
+                if (secs % 5 == 0)
+                    gd.addDemon(this.Width, this.Height, r);
+                if (secs % 8 == 0)
+                    gd.addDemon(this.Width, this.Height, r);
+            }
+                
+            if (mins == 5)
+            {
+                if (secs % 4 == 0)
+                    gd.addDemon(this.Width, this.Height, r);
+                if (secs % 6 == 0)
+                    gd.addDemon(this.Width, this.Height, r);
+            }
+                
+            if (mins == 4)
+            {
+                if (secs % 5 == 0)
+                    gd.addDemon(this.Width, this.Height, r);
+                if (secs % 3 == 0)
+                    gd.addDemon(this.Width, this.Height, r);
+            }
+                
+            if (mins == 3)
+            {
+                if (secs % 4 == 0)
+                    gd.addDemon(this.Width, this.Height, r);
+                if (secs % 2 == 0)
+                    gd.addDemon(this.Width, this.Height, r);
+            }
+
+            if (mins == 2)
+            {
+                if (secs % 3 == 0)
+                    gd.addDemon(this.Width, this.Height, r);
+                gd.addDemon(this.Width, this.Height, r);
+            }
+
+            if (mins == 1)
+            {
+                if (secs % 2 == 0)
+                    gd.addDemon(this.Width, this.Height, r);
+                gd.addDemon(this.Width, this.Height, r);
+            }
+
+            if (mins == 0)
+            {
+                gd.addDemon(this.Width, this.Height, r);
+                gd.addDemon(this.Width, this.Height, r);
+
+            }
+
+            if(mins == 1 && secs == 0)
+            {
+                gd.portal.show();
+            }
+            if (mins == 0 && secs == 30)
+                gd.portal.open();
+            if (mins == 0 && secs == 0)
+                gameLose();
         }
     }
 }

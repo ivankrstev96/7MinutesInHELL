@@ -27,6 +27,7 @@ namespace _7MinutesInHELL
         public int counter;
         public int counter2;
         public bool flagProjectile;
+        public bool alive;
         public Player(Point center)
         {
             this.center = center;
@@ -52,6 +53,7 @@ namespace _7MinutesInHELL
             }
             counter = 0;
             counter2 = 0;
+            alive = true;
         }
         public void Draw(Graphics g)
         {

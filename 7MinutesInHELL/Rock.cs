@@ -50,5 +50,16 @@ namespace _7MinutesInHELL
             }
             return false;
         }
+        public bool isHit(Projectile p)
+        {
+            int newX = this.center.X - width / 2  + 15;
+            int newY = this.center.Y - height / 2 + 5;
+            int newWidth = width - 40;
+            int newHeight = height - 30;
+            if (Math.Sqrt((newX + newHeight / 2 - p.center.X) * (newX + newHeight / 2 - p.center.X) + (newY + newHeight / 2 - p.center.Y) * (newY + newHeight / 2 - p.center.Y)) <=
+                newHeight / 2 + Projectile.height / 2)
+                return true;
+            return false;
+        }
     }
 }

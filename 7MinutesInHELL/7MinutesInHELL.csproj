@@ -51,6 +51,7 @@
     <Compile Include="ChooseName.Designer.cs">
       <DependentUpon>ChooseName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Demon.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +65,18 @@
       <DependentUpon>Game.cs</DependentUpon>
     </Compile>
     <Compile Include="GameDoc.cs" />
+    <Compile Include="GameLose.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GameLose.Designer.cs">
+      <DependentUpon>GameLose.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GameWin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GameWin.Designer.cs">
+      <DependentUpon>GameWin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Instructions.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +84,7 @@
       <DependentUpon>Instructions.cs</DependentUpon>
     </Compile>
     <Compile Include="Player.cs" />
+    <Compile Include="Portal.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Projectile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -83,6 +97,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Game.resx">
       <DependentUpon>Game.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GameLose.resx">
+      <DependentUpon>GameLose.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GameWin.resx">
+      <DependentUpon>GameWin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Instructions.resx">
       <DependentUpon>Instructions.cs</DependentUpon>
@@ -160,6 +180,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\playermove4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\youlost.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\youwon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\portalclosed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\portalopen.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
