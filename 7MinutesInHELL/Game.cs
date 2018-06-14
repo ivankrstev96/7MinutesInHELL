@@ -106,6 +106,11 @@ namespace _7MinutesInHELL
             lblPoints.Text = (int.Parse(lblPoints.Text) + gd.moveDemons(this.Width, this.Height)).ToString();
             lblPoints.Text = (int.Parse(lblPoints.Text) + gd.moveProjectiles(this.Width, this.Height, pnlStatus.Height)).ToString();
             if (gd.player.alive == false) gameLose();
+            if (gd.checkPowerUp())
+            {
+                gd.player.powerUp = 15;
+                pbReload.ForeColor = Color.GreenYellow;
+            }
             Invalidate(true);
         }
 
@@ -141,6 +146,7 @@ namespace _7MinutesInHELL
 
         private void Game_Paint(object sender, PaintEventArgs e)
         {
+            gd.drawPowerUps(e.Graphics);
             gd.drawPortal(e.Graphics);
             gd.drawRocks(e.Graphics);
             gd.player.Draw(e.Graphics);
@@ -271,7 +277,7 @@ namespace _7MinutesInHELL
         {
             timer1.Stop();
             timer2.Stop();
-            GameLose gl = new GameLose(this.Width, this.Height, this.Location);
+            GameLose gl = new GameLose(this.Width, this.Height, this.Location, gd.name, int.Parse(lblPoints.Text));
             this.Hide();
             gl.ShowDialog();
             this.Close();
@@ -281,7 +287,7 @@ namespace _7MinutesInHELL
         {
             timer1.Stop();
             timer2.Stop();
-            GameWin gl = new GameWin(this.Width, this.Height, this.Location);
+            GameWin gl = new GameWin(this.Width, this.Height, this.Location, gd.name, int.Parse(lblPoints.Text));
             this.Hide();
             gl.ShowDialog();
             this.Close();
@@ -374,6 +380,56 @@ namespace _7MinutesInHELL
                 gd.portal.open();
             if (mins == 0 && secs == 0)
                 gameLose();
+
+            gd.timePowerUps();
+            if (gd.player.timePowerUp())
+            {
+                if (pbReload.Value >= 50)
+                {
+                    pbReload.Value = 50;
+                }
+                pbReload.Maximum = 50;
+            }
+            else
+            {
+                pbReload.Maximum = 100;
+                pbReload.ForeColor = Color.DarkOrange;
+            }
+                
+
+            if(secs % 15 == 0)
+            {
+                if (r.Next(10) < 4)
+                {
+                    gd.addPowerUp(this.Width, this.Height, pnlStatus.Height, r);
+                }
+            }
+        }
+
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Game save file (*.gsf)|*.gsf";
+            openFileDialog.Title = "Open game save file";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                FileName = openFileDialog.FileName;
+                try
+                {
+                    using (FileStream fileStream = new FileStream(FileName, FileMode.Open))
+                    {
+                        IFormatter formater = new BinaryFormatter();
+                        gd = (GameDoc)formater.Deserialize(fileStream);
+                        Invalidate(true);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Could not read file: " + FileName);
+                    FileName = null;
+                    return;
+                }
+            }
         }
     }
 }

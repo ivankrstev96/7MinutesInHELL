@@ -12,3 +12,4 @@ c:\users\user\documents\visual studio 2017\Projects\7MinutesInHELL\7MinutesInHEL
 C:\Users\user\documents\visual studio 2017\Projects\7MinutesInHELL\7MinutesInHELL\obj\Debug\_7MinutesInHELL.Instructions.resources
 C:\Users\user\documents\visual studio 2017\Projects\7MinutesInHELL\7MinutesInHELL\obj\Debug\_7MinutesInHELL.GameLose.resources
 C:\Users\user\documents\visual studio 2017\Projects\7MinutesInHELL\7MinutesInHELL\obj\Debug\_7MinutesInHELL.GameWin.resources
+C:\Users\user\documents\visual studio 2017\Projects\7MinutesInHELL\7MinutesInHELL\obj\Debug\_7MinutesInHELL.LeaderBoards.resources

@@ -110,6 +110,7 @@
             this.btnLoad.TabIndex = 10;
             this.btnLoad.Text = "Load Game";
             this.btnLoad.UseVisualStyleBackColor = false;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
             // btnInstructions
             // 

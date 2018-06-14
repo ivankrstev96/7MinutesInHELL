@@ -99,6 +99,7 @@
             this.btnLeaderBoards.TabIndex = 10;
             this.btnLeaderBoards.Text = "Leaderboards";
             this.btnLeaderBoards.UseVisualStyleBackColor = false;
+            this.btnLeaderBoards.Click += new System.EventHandler(this.btnLeaderBoards_Click);
             // 
             // btnInstructions
             // 

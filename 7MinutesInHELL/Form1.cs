@@ -87,5 +87,13 @@ namespace _7MinutesInHELL
             ins.ShowDialog();
             this.Show();
         }
+
+        private void btnLeaderBoards_Click(object sender, EventArgs e)
+        {
+            LeaderBoards lb = new LeaderBoards(this.Width, this.Height, this.Location);
+            this.Hide();
+            lb.ShowDialog();
+            this.Show();
+        }
     }
 }

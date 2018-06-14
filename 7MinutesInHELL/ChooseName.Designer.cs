@@ -42,7 +42,7 @@
             this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.ForeColor = System.Drawing.Color.DarkOrange;
-            this.txtName.Location = new System.Drawing.Point(12, 64);
+            this.txtName.Location = new System.Drawing.Point(23, 64);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(280, 23);
             this.txtName.TabIndex = 1;
@@ -56,7 +56,7 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Location = new System.Drawing.Point(12, 109);
+            this.btnCancel.Location = new System.Drawing.Point(23, 109);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(133, 37);
             this.btnCancel.TabIndex = 2;
@@ -70,7 +70,7 @@
             this.btnPlay.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnPlay.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPlay.ForeColor = System.Drawing.Color.Black;
-            this.btnPlay.Location = new System.Drawing.Point(163, 109);
+            this.btnPlay.Location = new System.Drawing.Point(174, 109);
             this.btnPlay.Name = "btnPlay";
             this.btnPlay.Size = new System.Drawing.Size(129, 37);
             this.btnPlay.TabIndex = 3;
@@ -89,7 +89,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImage = global::_7MinutesInHELL.Properties.Resources.bgChoose;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(304, 158);
+            this.ClientSize = new System.Drawing.Size(329, 158);
             this.Controls.Add(this.btnPlay);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.txtName);

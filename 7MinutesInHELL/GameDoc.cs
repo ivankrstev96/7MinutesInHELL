@@ -17,6 +17,7 @@ namespace _7MinutesInHELL
         public List<Projectile> projectiles;
         public List<Rock> rocks;
         public List<Demon> demons;
+        public List<PowerUp> powerUps;
         public GameDoc(String name, int width, int height, int top)
         {
             this.name = name;
@@ -24,11 +25,63 @@ namespace _7MinutesInHELL
             projectiles = new List<Projectile>();
             rocks = new List<Rock>();
             demons = new List<Demon>();
+            powerUps = new List<PowerUp>();
             init(width, height, top);
         }
         public void drawPortal(Graphics g)
         {
             portal.Draw(g);
+        }
+        public void addPowerUp(int width, int height, int top, Random r)
+        {
+            while (true)
+            {
+                bool flag = true;
+                int x = r.Next(PowerUp.width, width - PowerUp.width);
+                int y = r.Next(top + PowerUp.width, height - PowerUp.width);
+                Point p = new Point(x, y);
+                foreach (Rock ro in rocks)
+                {
+                    if (ro.Touches(p, Rock.width, Rock.height))
+                    {
+                        flag = false;
+                        break;
+                    }
+                }
+                if (flag)
+                {
+                    powerUps.Add(new PowerUp(p));
+                    break;
+                }
+            }
+        }
+        public void drawPowerUps(Graphics g)
+        {
+            foreach (PowerUp p in powerUps)
+                p.Draw(g);
+        }
+        public void timePowerUps()
+        {
+            for (int i = 0; i < powerUps.Count; i++)
+            {
+                if (powerUps.ElementAt(i).reduceTime())
+                {
+                    powerUps.RemoveAt(i);
+                }
+            }
+        }
+        public bool checkPowerUp()
+        {
+            bool flag = false;
+            for(int i=0; i<powerUps.Count; i++)
+            {
+                if (powerUps.ElementAt(i).CollidesPlayer(player))
+                {
+                    powerUps.RemoveAt(i);
+                    flag = true;
+                }
+            }
+            return flag;
         }
         public int moveDemons(int right, int bottom)
         {

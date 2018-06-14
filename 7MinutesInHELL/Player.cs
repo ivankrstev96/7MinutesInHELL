@@ -28,6 +28,7 @@ namespace _7MinutesInHELL
         public int counter2;
         public bool flagProjectile;
         public bool alive;
+        public int powerUp;
         public Player(Point center)
         {
             this.center = center;
@@ -53,6 +54,7 @@ namespace _7MinutesInHELL
             }
             counter = 0;
             counter2 = 0;
+            powerUp = 0;
             alive = true;
         }
         public void Draw(Graphics g)
@@ -89,6 +91,15 @@ namespace _7MinutesInHELL
         {
             flagMoving = false;
             counter = 0;
+        }
+        public bool timePowerUp()
+        {
+            if (powerUp > 0)
+            {
+                powerUp--;
+                return true;
+            }
+            return false;
         }
         public void Move(int width, int height, int top)
         {
