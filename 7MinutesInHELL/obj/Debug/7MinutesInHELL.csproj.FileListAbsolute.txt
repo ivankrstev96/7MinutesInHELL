@@ -13,3 +13,23 @@ C:\Users\user\documents\visual studio 2017\Projects\7MinutesInHELL\7MinutesInHEL
 C:\Users\user\documents\visual studio 2017\Projects\7MinutesInHELL\7MinutesInHELL\obj\Debug\_7MinutesInHELL.GameLose.resources
 C:\Users\user\documents\visual studio 2017\Projects\7MinutesInHELL\7MinutesInHELL\obj\Debug\_7MinutesInHELL.GameWin.resources
 C:\Users\user\documents\visual studio 2017\Projects\7MinutesInHELL\7MinutesInHELL\obj\Debug\_7MinutesInHELL.LeaderBoards.resources
+C:\Users\Rin\Documents\GitHub\7MinutesInHELL\7MinutesInHELL\bin\Debug\7MinutesInHELL.exe.config
+C:\Users\Rin\Documents\GitHub\7MinutesInHELL\7MinutesInHELL\bin\Debug\7MinutesInHELL.exe
+C:\Users\Rin\Documents\GitHub\7MinutesInHELL\7MinutesInHELL\bin\Debug\7MinutesInHELL.pdb
+C:\Users\Rin\Documents\GitHub\7MinutesInHELL\7MinutesInHELL\obj\Debug\7MinutesInHELL.csprojResolveAssemblyReference.cache
+C:\Users\Rin\Documents\GitHub\7MinutesInHELL\7MinutesInHELL\obj\Debug\_7MinutesInHELL.ChooseName.resources
+C:\Users\Rin\Documents\GitHub\7MinutesInHELL\7MinutesInHELL\obj\Debug\_7MinutesInHELL.Form1.resources
+C:\Users\Rin\Documents\GitHub\7MinutesInHELL\7MinutesInHELL\obj\Debug\_7MinutesInHELL.Game.resources
+C:\Users\Rin\Documents\GitHub\7MinutesInHELL\7MinutesInHELL\obj\Debug\_7MinutesInHELL.GameLose.resources
+C:\Users\Rin\Documents\GitHub\7MinutesInHELL\7MinutesInHELL\obj\Debug\_7MinutesInHELL.GameWin.resources
+C:\Users\Rin\Documents\GitHub\7MinutesInHELL\7MinutesInHELL\obj\Debug\_7MinutesInHELL.Instructions.resources
+C:\Users\Rin\Documents\GitHub\7MinutesInHELL\7MinutesInHELL\obj\Debug\_7MinutesInHELL.LeaderBoards.resources
+C:\Users\Rin\Documents\GitHub\7MinutesInHELL\7MinutesInHELL\obj\Debug\_7MinutesInHELL.Properties.Resources.resources
+C:\Users\Rin\Documents\GitHub\7MinutesInHELL\7MinutesInHELL\obj\Debug\7MinutesInHELL.csproj.GenerateResource.Cache
+C:\Users\Rin\Documents\GitHub\7MinutesInHELL\7MinutesInHELL\obj\Debug\7MinutesInHELL.exe
+C:\Users\Rin\Documents\GitHub\7MinutesInHELL\7MinutesInHELL\obj\Debug\7MinutesInHELL.pdb
+C:\Users\Rin\Documents\GitHub\7MinutesInHELL\7MinutesInHELL\bin\Debug\Interop.WMPLib.dll
+C:\Users\Rin\Documents\GitHub\7MinutesInHELL\7MinutesInHELL\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\Rin\Documents\GitHub\7MinutesInHELL\7MinutesInHELL\obj\Debug\Interop.WMPLib.dll
+C:\Users\Rin\Documents\GitHub\7MinutesInHELL\7MinutesInHELL\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\Rin\Documents\GitHub\7MinutesInHELL\7MinutesInHELL\obj\Debug\7MinutesInHELL.csproj.ResolveComReference.cache

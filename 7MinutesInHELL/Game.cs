@@ -11,6 +11,7 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using _7MinutesInHELL.Properties;
+using AxWMPLib;
 
 namespace _7MinutesInHELL
 {
@@ -26,6 +27,7 @@ namespace _7MinutesInHELL
         public string FileName;
         public bool flagPaused;
         Random r;
+
         public Game(String name, int width, int height, Point location)
         {
             InitializeComponent();
@@ -45,6 +47,9 @@ namespace _7MinutesInHELL
             flagRight = false;
             r = new Random();
             gd.addDemon(this.Width, this.Height, r);
+            axwmp.URL = Path.Combine(System.IO.Path.GetFullPath(@"..\..\"), "Resources\\09 - SsSsSsSsSsSsSsSsSs - ingame.mp3");
+            axwmp.settings.setMode("loop", true);
+            axwmp.Ctlcontrols.play();
             Invalidate(true);
         }
         public Game(int width, int height, Point location, GameDoc gd)

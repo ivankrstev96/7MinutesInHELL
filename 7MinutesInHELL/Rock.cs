@@ -26,7 +26,7 @@ namespace _7MinutesInHELL
             g.DrawImage(image, center.X - width / 2, center.Y - height / 2, width, height);
             //Brush b = new SolidBrush(Color.Green);
             //g.FillEllipse(b, center.X - width / 2 + 20, center.Y - height / 2, width - 40, height - 50);
-
+            
         }
         public bool Touches(Point center, int width, int height)
         {

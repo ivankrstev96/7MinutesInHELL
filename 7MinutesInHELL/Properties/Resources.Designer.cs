@@ -61,6 +61,26 @@ namespace _7MinutesInHELL.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] _06__Green_Calx___7mins_hell_menu {
+            get {
+                object obj = ResourceManager.GetObject("_06__Green_Calx___7mins_hell_menu", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] _09___SsSsSsSsSsSsSsSsSs___ingame {
+            get {
+                object obj = ResourceManager.GetObject("_09___SsSsSsSsSsSsSsSsSs___ingame", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap _7mih {
@@ -147,6 +167,15 @@ namespace _7MinutesInHELL.Properties {
             get {
                 object obj = ResourceManager.GetObject("leaderboards", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream pew {
+            get {
+                return ResourceManager.GetStream("pew", resourceCulture);
             }
         }
         
