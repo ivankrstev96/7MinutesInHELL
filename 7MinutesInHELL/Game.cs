@@ -295,6 +295,7 @@ namespace _7MinutesInHELL
             GameLose gl = new GameLose(this.Width, this.Height, this.Location, gd.name, int.Parse(lblPoints.Text));
             this.Hide();
             gl.ShowDialog();
+            axwmp.Ctlcontrols.stop();
             this.Close();
         }
 
@@ -305,7 +306,9 @@ namespace _7MinutesInHELL
             GameWin gl = new GameWin(this.Width, this.Height, this.Location, gd.name, int.Parse(lblPoints.Text));
             this.Hide();
             gl.ShowDialog();
+            axwmp.Ctlcontrols.stop();
             this.Close();
+
         }
 
         private void btnInstructions_Click(object sender, EventArgs e)
