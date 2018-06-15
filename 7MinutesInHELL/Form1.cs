@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using AxWMPLib;
+using _7MinutesInHELL;
 
 namespace _7MinutesInHELL
 {
@@ -18,6 +20,8 @@ namespace _7MinutesInHELL
         public string FileName;
         public Game game;
         public System.Media.SoundPlayer mp;
+        public AxWindowsMediaPlayer axwmp;
+
         public Form1()
         {
             InitializeComponent();
@@ -28,6 +32,17 @@ namespace _7MinutesInHELL
             this.Height = Screen.PrimaryScreen.WorkingArea.Height;
             this.Location = Screen.PrimaryScreen.WorkingArea.Location;
             FileName = null;
+
+            axwmp = new AxWindowsMediaPlayer();
+            axwmp.CreateControl();
+            this.axwmp.Enabled = true;
+            this.axwmp.Location = new System.Drawing.Point(1084, 228);
+            this.axwmp.Name = "axwmp";
+            this.axwmp.Visible = false;
+            this.Controls.Add(this.axwmp);
+            axwmp.URL = Path.Combine(System.IO.Path.GetFullPath(@"..\..\"), "Resources\\[06] Green Calx - 7mins hell menu.mp3");
+            axwmp.settings.setMode("loop", true);
+            axwmp.Ctlcontrols.play();
         }
 
 
@@ -45,9 +60,12 @@ namespace _7MinutesInHELL
             if(cn.DialogResult == DialogResult.OK)
             {
                 game = new Game(cn.name, this.Width, this.Height, this.Location);
+
+                axwmp.Ctlcontrols.stop();
                 this.Hide();
                 game.ShowDialog();
                 this.Show();
+                axwmp.Ctlcontrols.play();
             }
         }
 
@@ -66,9 +84,11 @@ namespace _7MinutesInHELL
                         IFormatter formater = new BinaryFormatter();
                         GameDoc gd = (GameDoc)formater.Deserialize(fileStream);
                         game = new Game(this.Width, this.Height, this.Location, gd);
+                        axwmp.Ctlcontrols.stop();
                         this.Hide();
                         game.ShowDialog();
                         this.Show();
+                        axwmp.Ctlcontrols.play();
                     }
                 }
                 catch (Exception ex)

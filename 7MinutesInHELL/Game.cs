@@ -12,6 +12,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using _7MinutesInHELL.Properties;
 using AxWMPLib;
+using System.Media;
 
 namespace _7MinutesInHELL
 {
@@ -26,6 +27,7 @@ namespace _7MinutesInHELL
         public bool flagRight;
         public string FileName;
         public bool flagPaused;
+        public SoundPlayer pewplayer;
         Random r;
 
         public Game(String name, int width, int height, Point location)
@@ -50,6 +52,7 @@ namespace _7MinutesInHELL
             axwmp.URL = Path.Combine(System.IO.Path.GetFullPath(@"..\..\"), "Resources\\09 - SsSsSsSsSsSsSsSsSs - ingame.mp3");
             axwmp.settings.setMode("loop", true);
             axwmp.Ctlcontrols.play();
+            pewplayer  = new System.Media.SoundPlayer(Properties.Resources.pew);
             Invalidate(true);
         }
         public Game(int width, int height, Point location, GameDoc gd)
@@ -70,6 +73,11 @@ namespace _7MinutesInHELL
             flagLeft = false;
             flagRight = false;
             r = new Random();
+
+            axwmp.URL = Path.Combine(System.IO.Path.GetFullPath(@"..\..\"), "Resources\\09 - SsSsSsSsSsSsSsSsSs - ingame.mp3");
+            axwmp.settings.setMode("loop", true);
+            axwmp.Ctlcontrols.play();
+
             Invalidate(true);
         }
 
@@ -225,6 +233,7 @@ namespace _7MinutesInHELL
                     gd.addProjectile();
                     gd.player.flagProjectile = false;
                     pbReload.Value = 0;
+                    pewplayer.Play();
                 }
             }
 
@@ -241,6 +250,7 @@ namespace _7MinutesInHELL
 
         private void btnQuit_Click(object sender, EventArgs e)
         {
+            axwmp.Ctlcontrols.stop();
             this.Close();
         }
 
