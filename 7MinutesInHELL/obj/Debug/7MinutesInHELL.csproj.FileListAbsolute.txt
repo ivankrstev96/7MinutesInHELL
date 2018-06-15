@@ -33,3 +33,8 @@ C:\Users\Rin\Documents\GitHub\7MinutesInHELL\7MinutesInHELL\bin\Debug\AxInterop.
 C:\Users\Rin\Documents\GitHub\7MinutesInHELL\7MinutesInHELL\obj\Debug\Interop.WMPLib.dll
 C:\Users\Rin\Documents\GitHub\7MinutesInHELL\7MinutesInHELL\obj\Debug\AxInterop.WMPLib.dll
 C:\Users\Rin\Documents\GitHub\7MinutesInHELL\7MinutesInHELL\obj\Debug\7MinutesInHELL.csproj.ResolveComReference.cache
+C:\Users\user\documents\visual studio 2017\Projects\7MinutesInHELL\7MinutesInHELL\bin\Debug\Interop.WMPLib.dll
+C:\Users\user\documents\visual studio 2017\Projects\7MinutesInHELL\7MinutesInHELL\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\user\documents\visual studio 2017\Projects\7MinutesInHELL\7MinutesInHELL\obj\Debug\Interop.WMPLib.dll
+C:\Users\user\documents\visual studio 2017\Projects\7MinutesInHELL\7MinutesInHELL\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\user\documents\visual studio 2017\Projects\7MinutesInHELL\7MinutesInHELL\obj\Debug\7MinutesInHELL.csproj.ResolveComReference.cache

@@ -18,6 +18,7 @@ namespace _7MinutesInHELL
         public List<Rock> rocks;
         public List<Demon> demons;
         public List<PowerUp> powerUps;
+        public String time;
         public GameDoc(String name, int width, int height, int top)
         {
             this.name = name;

@@ -84,12 +84,13 @@ namespace _7MinutesInHELL
                         IFormatter formater = new BinaryFormatter();
                         GameDoc gd = (GameDoc)formater.Deserialize(fileStream);
                         game = new Game(this.Width, this.Height, this.Location, gd);
-                        axwmp.Ctlcontrols.stop();
-                        this.Hide();
-                        game.ShowDialog();
-                        this.Show();
-                        axwmp.Ctlcontrols.play();
                     }
+                    axwmp.Ctlcontrols.stop();
+                    this.Hide();
+                    game.ShowDialog();
+                    this.Show();
+                    axwmp.Ctlcontrols.play();
+                    
                 }
                 catch (Exception ex)
                 {

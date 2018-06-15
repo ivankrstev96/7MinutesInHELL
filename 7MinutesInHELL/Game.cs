@@ -48,6 +48,7 @@ namespace _7MinutesInHELL
             flagLeft = false;
             flagRight = false;
             r = new Random();
+            gd.time = lblTime.Text;
             gd.addDemon(this.Width, this.Height, r);
             axwmp.URL = Path.Combine(System.IO.Path.GetFullPath(@"..\..\"), "Resources\\09 - SsSsSsSsSsSsSsSsSs - ingame.mp3");
             axwmp.settings.setMode("loop", true);
@@ -73,11 +74,11 @@ namespace _7MinutesInHELL
             flagLeft = false;
             flagRight = false;
             r = new Random();
-
+            lblTime.Text = gd.time;
             axwmp.URL = Path.Combine(System.IO.Path.GetFullPath(@"..\..\"), "Resources\\09 - SsSsSsSsSsSsSsSsSs - ingame.mp3");
             axwmp.settings.setMode("loop", true);
             axwmp.Ctlcontrols.play();
-
+            pewplayer = new System.Media.SoundPlayer(Properties.Resources.pew);
             Invalidate(true);
         }
 
@@ -321,6 +322,7 @@ namespace _7MinutesInHELL
 
         private void timer2_Tick(object sender, EventArgs e)
         {
+            lblTime.Text = gd.time;
             String[] ss = lblTime.Text.Split(':');
             int mins = int.Parse(ss[0]);
             int secs = int.Parse(ss[1]);
@@ -337,6 +339,7 @@ namespace _7MinutesInHELL
                 secs--;
             }
             lblTime.Text = mins.ToString("00") + ":" + secs.ToString("00");
+            gd.time = lblTime.Text;
             if (mins == 6)
             {
                 if (secs % 5 == 0)
@@ -438,12 +441,13 @@ namespace _7MinutesInHELL
                     {
                         IFormatter formater = new BinaryFormatter();
                         gd = (GameDoc)formater.Deserialize(fileStream);
+                        lblTime.Text = gd.time;
                         Invalidate(true);
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Could not read file: " + FileName);
+                    MessageBox.Show("Could not read file: " + FileName + "\n" + ex.Message);
                     FileName = null;
                     return;
                 }
